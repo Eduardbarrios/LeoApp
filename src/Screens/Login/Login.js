@@ -1,20 +1,16 @@
 import { useContext, useState } from "react";
-import {
-	Pressable,
-	StyleSheet,
-	Text,
-	TextInput,
-	View,
-	Button,
-	Keyboard,
-} from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image } from "react-native-elements";
+import { Context } from "../../context/Context";
+import Logo from "../../assets/LogoComercio.png";
+
+//importacion de herramienta para la validación de formularios
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { userDetails, user } from "../../Utils/dataBaseMook";
-import { Context } from "../../context/Context";
 
 function Login({ navigation }) {
-	const { setCurrentUser, loginFn } = useContext(Context);
+	const { setCurrentUser } = useContext(Context);
 	const [error, setError] = useState("");
 	const formik = useFormik({
 		initialValues: {
@@ -80,6 +76,7 @@ function validationSchema() {
 const style = StyleSheet.create({
 	loginView: {
 		flex: 1,
+
 		alignItems: "center",
 		justifyContent: "center",
 	},
